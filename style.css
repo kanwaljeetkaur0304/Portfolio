@@ -1751,14 +1751,31 @@ body {
 [data-theme="light"] .hero-scroll-hint span { color: #94a3b8; }
 
 /* Buttons */
+[data-theme="light"] .btn-gold {
+  background: linear-gradient(135deg, #a8832a, #c9a84c);
+  color: #ffffff !important;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+[data-theme="light"] .btn-gold:hover {
+  background: linear-gradient(135deg, #8a6a20, #b8943c);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.22);
+}
 [data-theme="light"] .btn-outline {
-  border-color: rgba(0,0,0,0.18);
-  color: var(--white);
+  border-color: rgba(0,0,0,0.35);
+  color: #0d1224;
+  font-weight: 600;
 }
 [data-theme="light"] .btn-outline:hover {
   border-color: var(--gold);
   color: var(--gold);
-  background: rgba(201,168,76,0.06);
+  background: rgba(201,168,76,0.08);
+}
+/* Dev tag in logo */
+[data-theme="light"] .logo-tagline {
+  background: rgba(0,0,0,0.12);
+  border-color: rgba(0,0,0,0.2);
+  color: #0d1224;
 }
 
 /* Cards & glass */
@@ -1821,6 +1838,11 @@ body {
 /* About card */
 [data-theme="light"] .ac-project-item { color: #64748b; }
 [data-theme="light"] .highlight-item  { color: #64748b; }
+[data-theme="light"] .about-highlight-tag {
+  background: rgba(139,100,20,0.12);
+  border-color: rgba(139,100,20,0.4);
+  color: #7a5c10;
+}
 [data-theme="light"] .about-text p    { color: #64748b; }
 
 /* Testimonials */
