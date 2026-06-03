@@ -340,11 +340,16 @@ document.getElementById('review-form').addEventListener('submit', async function
   btn.textContent = 'Submitting…';
   btn.disabled = true;
 
+  const reviewName    = document.getElementById('r-name').value.trim();
+  const reviewRole    = document.getElementById('r-role').value.trim();
+  const reviewMessage = document.getElementById('r-review').value.trim();
+  const reviewRating  = parseInt(rating);
+
   const { error } = await _supa.from('portfolio_reviews').insert({
-    name:    document.getElementById('r-name').value.trim(),
-    role:    document.getElementById('r-role').value.trim(),
-    rating:  parseInt(rating),
-    message: document.getElementById('r-review').value.trim()
+    name:    reviewName,
+    role:    reviewRole,
+    rating:  reviewRating,
+    message: reviewMessage
   });
 
   if (error) {
@@ -354,6 +359,20 @@ document.getElementById('review-form').addEventListener('submit', async function
     console.error('Supabase error:', error);
     return;
   }
+
+  /* Send email notification via EmailJS */
+  emailjs.send('kanwaljeetkaur0304@gmail', 'template_tc89r0q', {
+    name:    'Portfolio Review System',
+    email:   'noreply@portfolio.com',
+    subject: '⭐ New Review Submitted — Action Required',
+    budget:  reviewRating + ' / 5 stars',
+    message: '🆕 New review on your portfolio!\n\n' +
+             'Name: ' + reviewName + '\n' +
+             'Role: ' + reviewRole + '\n' +
+             'Rating: ' + reviewRating + '/5 ⭐\n\n' +
+             'Review:\n' + reviewMessage + '\n\n' +
+             '👉 Approve it here:\nhttps://supabase.com/dashboard/project/xpopxgxtxaqdrfgfltjw/editor'
+  }).catch(err => console.warn('Email notification failed:', err));
 
   btn.textContent = 'Submit Review →';
   btn.disabled = false;
