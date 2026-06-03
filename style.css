@@ -1838,6 +1838,17 @@ body {
 /* About card */
 [data-theme="light"] .ac-project-item { color: #64748b; }
 [data-theme="light"] .highlight-item  { color: #64748b; }
+
+/* About — MY STACK label & green NOW block */
+[data-theme="light"] .about-now-block {
+  border-left-color: #1a7a3a;
+  background: rgba(20,100,50,0.08);
+}
+[data-theme="light"] .anb-green { color: #1a7a3a; }
+[data-theme="light"] .about-stack-block { border-left-color: #8a6a20; }
+[data-theme="light"] .asb-label { color: #5a3e0a; font-weight: 700; }
+[data-theme="light"] .about-stack-block .ac-label,
+[data-theme="light"] .about-now-block .ac-label { color: #1a7a3a; }
 [data-theme="light"] .nav-links .nav-cta {
   background: linear-gradient(135deg, #a8832a, #c9a84c);
   color: #ffffff !important;
