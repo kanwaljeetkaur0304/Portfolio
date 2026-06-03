@@ -307,6 +307,65 @@ if (heroStats) statObserver.observe(heroStats);
   autoPlay();
 })();
 
+/* ── STAR RATING ── */
+(function () {
+  const stars = document.querySelectorAll('#star-rating span');
+  const ratingInput = document.getElementById('r-rating');
+  if (!stars.length) return;
+
+  stars.forEach(star => {
+    star.addEventListener('mouseover', () => {
+      const val = +star.dataset.val;
+      stars.forEach(s => s.classList.toggle('hover', +s.dataset.val <= val));
+    });
+    star.addEventListener('mouseout', () => {
+      stars.forEach(s => s.classList.remove('hover'));
+    });
+    star.addEventListener('click', () => {
+      const val = +star.dataset.val;
+      ratingInput.value = val;
+      stars.forEach(s => s.classList.toggle('active', +s.dataset.val <= val));
+    });
+  });
+})();
+
+/* ── REVIEW FORM ── */
+document.getElementById('review-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const btn = this.querySelector('button[type="submit"]');
+  const success = document.getElementById('review-success');
+  const rating = document.getElementById('r-rating').value;
+  if (!rating) { alert('Please select a star rating.'); return; }
+
+  btn.textContent = 'Submitting…';
+  btn.disabled = true;
+
+  emailjs.send('kanwaljeetkaur0304@gmail', 'template_tc89r0q', {
+    name: 'New Review Submission',
+    email: 'portfolio@review.com',
+    subject: 'New Portfolio Review — ' + document.getElementById('r-name').value,
+    budget: 'Rating: ' + rating + ' / 5 stars',
+    message: 'From: ' + document.getElementById('r-name').value +
+             '\nRole: ' + document.getElementById('r-role').value +
+             '\nRating: ' + rating + '/5\n\nReview:\n' + document.getElementById('r-review').value
+  })
+  .then(() => {
+    btn.textContent = 'Submit Review →';
+    btn.disabled = false;
+    success.classList.add('show');
+    this.reset();
+    document.querySelectorAll('#star-rating span').forEach(s => s.classList.remove('active'));
+    document.getElementById('r-rating').value = '';
+    setTimeout(() => success.classList.remove('show'), 6000);
+  })
+  .catch(err => {
+    btn.textContent = 'Submit Review →';
+    btn.disabled = false;
+    alert('Something went wrong. Please try again.');
+    console.error('EmailJS error:', err);
+  });
+});
+
 /* ── CONTACT FORM ── */
 document.getElementById('contact-form').addEventListener('submit', function (e) {
   e.preventDefault();

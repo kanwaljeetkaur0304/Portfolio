@@ -1021,6 +1021,46 @@
     </div>
   </section>
 
+  <!-- LEAVE A REVIEW -->
+  <section id="leave-review" class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Share Your Experience</span>
+        <h2>Leave a <span class="gold">Review</span></h2>
+        <p class="section-sub">Worked with me? I'd love to hear your feedback — it helps others know what to expect.</p>
+      </div>
+      <form class="review-form glass-card reveal" id="review-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="r-name">Your Name *</label>
+            <input type="text" id="r-name" name="reviewer_name" placeholder="Jane Smith" required />
+          </div>
+          <div class="form-group">
+            <label for="r-role">Your Role / Company *</label>
+            <input type="text" id="r-role" name="reviewer_role" placeholder="CEO, Acme Inc." required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="r-rating">Rating *</label>
+          <div class="star-rating" id="star-rating">
+            <span data-val="1">★</span>
+            <span data-val="2">★</span>
+            <span data-val="3">★</span>
+            <span data-val="4">★</span>
+            <span data-val="5">★</span>
+          </div>
+          <input type="hidden" id="r-rating" name="reviewer_rating" value="" />
+        </div>
+        <div class="form-group">
+          <label for="r-review">Your Review *</label>
+          <textarea id="r-review" name="reviewer_message" rows="5" placeholder="Tell others about your experience working with me..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;">Submit Review →</button>
+        <div class="form-success" id="review-success">✅ Thank you! Your review has been submitted.</div>
+      </form>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">

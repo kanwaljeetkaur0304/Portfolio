@@ -1302,6 +1302,34 @@ body {
 .form-success.show { display: block; }
 
 /* ─────────────────────────────────────
+   REVIEW FORM
+───────────────────────────────────── */
+.review-form {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.star-rating {
+  display: flex;
+  gap: 8px;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.star-rating span {
+  color: rgba(201,168,76,0.25);
+  transition: color 0.15s ease;
+  line-height: 1;
+  user-select: none;
+}
+.star-rating span.active,
+.star-rating span.hover {
+  color: var(--gold);
+}
+
+/* ─────────────────────────────────────
    FOOTER
 ───────────────────────────────────── */
 .footer {
