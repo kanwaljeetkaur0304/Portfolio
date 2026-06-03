@@ -266,8 +266,7 @@ if (heroStats) statObserver.observe(heroStats);
   }
 
   function getCardWidth() {
-    if (!cards[0]) return 0;
-    return cards[0].offsetWidth;
+    return track.parentElement.offsetWidth;
   }
 
   function goTo(idx) {

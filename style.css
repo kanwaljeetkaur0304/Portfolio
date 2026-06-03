@@ -1138,16 +1138,17 @@ body {
 /* ─────────────────────────────────────
    TESTIMONIALS
 ───────────────────────────────────── */
-.testimonials-wrap { position: relative; overflow: hidden; }
+.testimonials-wrap { position: relative; overflow: hidden; width: 100%; }
 .testimonials-track {
   display: flex;
-  gap: 24px;
+  gap: 0;
   transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+  will-change: transform;
 }
 .testimonial-card {
-  min-width: 100%;
+  flex: 0 0 100%;
+  width: 100%;
   padding: 40px;
-  flex-shrink: 0;
   box-sizing: border-box;
 }
 .stars { color: var(--gold); font-size: 1rem; letter-spacing: 2px; margin-bottom: 16px; }
