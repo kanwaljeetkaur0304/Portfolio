@@ -350,7 +350,7 @@ document.getElementById('review-form').addEventListener('submit', async function
   if (error) {
     btn.textContent = 'Submit Review →';
     btn.disabled = false;
-    alert('Something went wrong. Please try again.');
+    alert('Error: ' + error.message + ' | Code: ' + error.code);
     console.error('Supabase error:', error);
     return;
   }
