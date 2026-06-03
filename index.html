@@ -984,11 +984,11 @@
           <div class="form-row">
             <div class="form-group">
               <label for="name">Your Name</label>
-              <input type="text" id="name" name="name" placeholder="John Smith" required />
+              <input type="text" id="name" name="name" placeholder="John Smith" autocomplete="name" required />
             </div>
             <div class="form-group">
               <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="john@company.com" required />
+              <input type="email" id="email" name="email" placeholder="john@company.com" autocomplete="email" required />
             </div>
           </div>
           <div class="form-group">
@@ -1040,16 +1040,16 @@
         <div class="form-row">
           <div class="form-group">
             <label for="r-name">Your Name *</label>
-            <input type="text" id="r-name" name="reviewer_name" placeholder="Jane Smith" required />
+            <input type="text" id="r-name" name="reviewer_name" placeholder="Jane Smith" autocomplete="name" required />
           </div>
           <div class="form-group">
             <label for="r-role">Your Role / Company *</label>
-            <input type="text" id="r-role" name="reviewer_role" placeholder="CEO, Acme Inc." required />
+            <input type="text" id="r-role" name="reviewer_role" placeholder="CEO, Acme Inc." autocomplete="organization-title" required />
           </div>
         </div>
         <div class="form-group">
-          <label for="r-rating">Rating *</label>
-          <div class="star-rating" id="star-rating">
+          <label>Rating *</label>
+          <div class="star-rating" id="star-rating" role="group" aria-label="Star rating">
             <span data-val="1">★</span>
             <span data-val="2">★</span>
             <span data-val="3">★</span>
