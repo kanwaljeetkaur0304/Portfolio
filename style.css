@@ -1748,10 +1748,13 @@ body {
     radial-gradient(ellipse 60% 80% at 80% 80%, rgba(99,102,241,0.04) 0%, transparent 60%);
 }
 [data-theme="light"] .hero-eyebrow {
-  background: rgba(201,168,76,0.1);
-  border-color: rgba(201,168,76,0.35);
+  background: rgba(100,80,20,0.1);
+  border-color: rgba(100,80,20,0.4);
+  color: #5a3e0a;
 }
-[data-theme="light"] .hero-sub { color: #64748b; }
+[data-theme="light"] .hero-sub { color: #2d3748; }
+[data-theme="light"] .typed-cursor { color: #5a3e0a; }
+[data-theme="light"] .typed-text { color: #7a5c10; }
 [data-theme="light"] .hero-stats {
   background: rgba(255,255,255,0.75);
   border-color: rgba(201,168,76,0.25);
