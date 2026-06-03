@@ -1686,8 +1686,8 @@ body {
   height: 28px;
   opacity: 1;
 }
-.theme-bulb.light-on .tb-tooltip::before { content: 'Switch Day Mode'; }
-.theme-bulb:not(.light-on) .tb-tooltip::before { content: 'Switch Day Mode'; }
+.theme-bulb.light-on .tb-tooltip::before { content: 'Switch'; }
+.theme-bulb:not(.light-on) .tb-tooltip::before { content: 'Switch'; }
 .theme-bulb .tb-tooltip { font-size: 0; } /* hide text content, use ::before */
 .theme-bulb:hover .tb-tooltip { font-size: 0.65rem; }
 
