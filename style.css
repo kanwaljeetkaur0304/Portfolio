@@ -1686,8 +1686,8 @@ body {
   height: 28px;
   opacity: 1;
 }
-.theme-bulb.light-on .tb-tooltip::before { content: 'Night mode'; }
-.theme-bulb:not(.light-on) .tb-tooltip::before { content: 'Day mode'; }
+.theme-bulb.light-on .tb-tooltip::before { content: 'Switch theme'; }
+.theme-bulb:not(.light-on) .tb-tooltip::before { content: 'Switch theme'; }
 .theme-bulb .tb-tooltip { font-size: 0; } /* hide text content, use ::before */
 .theme-bulb:hover .tb-tooltip { font-size: 0.65rem; }
 
