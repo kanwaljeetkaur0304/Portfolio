@@ -1444,7 +1444,7 @@ body {
   .hero-eyebrow  { font-size: 0.6rem; letter-spacing: 0.08em; padding: 5px 12px; white-space: normal; max-width: 280px; }
   .hero-content  { padding-left: 16px; padding-right: 16px; }
   .hero-typed-wrap { font-size: 0.85rem; min-height: 2.8em; max-width: 260px; margin-left: auto; margin-right: auto; line-height: 1.4; }
-  .hero-sub      { font-size: 0.82rem; line-height: 1.6; max-width: 300px; margin-left: auto; margin-right: auto; }
+  .hero-sub      { font-size: 0.78rem; line-height: 1.65; max-width: 240px; margin-left: auto; margin-right: auto; word-break: normal; }
   .about-grid    { grid-template-columns: 1fr; gap: 40px; }
   .contact-grid  { grid-template-columns: 1fr; }
   .testimonial-card { min-width: calc(100% - 0px); }
