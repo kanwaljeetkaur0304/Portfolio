@@ -329,8 +329,8 @@ if (heroStats) statObserver.observe(heroStats);
   });
 })();
 
-/* ── REVIEW FORM ── */
-document.getElementById('review-form').addEventListener('submit', function (e) {
+/* ── REVIEW FORM → SUPABASE ── */
+document.getElementById('review-form').addEventListener('submit', async function (e) {
   e.preventDefault();
   const btn = this.querySelector('button[type="submit"]');
   const success = document.getElementById('review-success');
@@ -340,31 +340,77 @@ document.getElementById('review-form').addEventListener('submit', function (e) {
   btn.textContent = 'Submitting…';
   btn.disabled = true;
 
-  emailjs.send('kanwaljeetkaur0304@gmail', 'template_tc89r0q', {
-    name: 'New Review Submission',
-    email: 'portfolio@review.com',
-    subject: 'New Portfolio Review — ' + document.getElementById('r-name').value,
-    budget: 'Rating: ' + rating + ' / 5 stars',
-    message: 'From: ' + document.getElementById('r-name').value +
-             '\nRole: ' + document.getElementById('r-role').value +
-             '\nRating: ' + rating + '/5\n\nReview:\n' + document.getElementById('r-review').value
-  })
-  .then(() => {
-    btn.textContent = 'Submit Review →';
-    btn.disabled = false;
-    success.classList.add('show');
-    this.reset();
-    document.querySelectorAll('#star-rating span').forEach(s => s.classList.remove('active'));
-    document.getElementById('r-rating').value = '';
-    setTimeout(() => success.classList.remove('show'), 6000);
-  })
-  .catch(err => {
+  const { error } = await _supa.from('reviews').insert({
+    name:    document.getElementById('r-name').value.trim(),
+    role:    document.getElementById('r-role').value.trim(),
+    rating:  parseInt(rating),
+    message: document.getElementById('r-review').value.trim()
+  });
+
+  if (error) {
     btn.textContent = 'Submit Review →';
     btn.disabled = false;
     alert('Something went wrong. Please try again.');
-    console.error('EmailJS error:', err);
-  });
+    console.error('Supabase error:', error);
+    return;
+  }
+
+  btn.textContent = 'Submit Review →';
+  btn.disabled = false;
+  success.classList.add('show');
+  this.reset();
+  document.querySelectorAll('#star-rating span').forEach(s => s.classList.remove('active'));
+  document.getElementById('r-rating').value = '';
+  setTimeout(() => success.classList.remove('show'), 6000);
 });
+
+/* ── LOAD APPROVED REVIEWS INTO TESTIMONIALS ── */
+async function loadApprovedReviews() {
+  const { data, error } = await _supa
+    .from('reviews')
+    .select('*')
+    .eq('approved', true)
+    .order('created_at', { ascending: false });
+
+  if (error || !data || data.length === 0) return;
+
+  const track = document.getElementById('testimonials-track');
+  const dotsWrap = document.getElementById('testi-dots');
+
+  data.forEach(review => {
+    const stars = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
+    const initials = review.name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+    const card = document.createElement('div');
+    card.className = 'testimonial-card glass-card';
+    card.innerHTML = `
+      <div class="stars">${stars}</div>
+      <p class="testi-text">"${review.message}"</p>
+      <div class="testi-author">
+        <div class="testi-avatar">${initials}</div>
+        <div>
+          <p class="testi-name">${review.name}</p>
+          <p class="testi-role gold">${review.role}</p>
+        </div>
+      </div>`;
+    track.appendChild(card);
+  });
+
+  /* rebuild dots now that new cards are added */
+  const allCards = track.querySelectorAll('.testimonial-card');
+  dotsWrap.innerHTML = '';
+  allCards.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'testi-dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => {
+      const w = track.parentElement.offsetWidth;
+      track.style.transform = `translateX(-${i * w}px)`;
+      dotsWrap.querySelectorAll('.testi-dot').forEach((dot, j) => dot.classList.toggle('active', j === i));
+    });
+    dotsWrap.appendChild(d);
+  });
+}
+
+loadApprovedReviews();
 
 /* ── CONTACT FORM ── */
 document.getElementById('contact-form').addEventListener('submit', function (e) {
