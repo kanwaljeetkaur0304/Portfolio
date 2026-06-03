@@ -340,7 +340,7 @@ document.getElementById('review-form').addEventListener('submit', async function
   btn.textContent = 'Submitting…';
   btn.disabled = true;
 
-  const { error } = await _supa.from('reviews').insert({
+  const { error } = await _supa.from('portfolio_reviews').insert({
     name:    document.getElementById('r-name').value.trim(),
     role:    document.getElementById('r-role').value.trim(),
     rating:  parseInt(rating),
@@ -367,7 +367,7 @@ document.getElementById('review-form').addEventListener('submit', async function
 /* ── LOAD APPROVED REVIEWS INTO TESTIMONIALS ── */
 async function loadApprovedReviews() {
   const { data, error } = await _supa
-    .from('reviews')
+    .from('portfolio_reviews')
     .select('*')
     .eq('approved', true)
     .order('created_at', { ascending: false });
