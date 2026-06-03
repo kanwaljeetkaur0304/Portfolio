@@ -245,7 +245,7 @@ if (heroStats) statObserver.observe(heroStats);
   let autoTimer;
 
   function getPerView() {
-    return window.innerWidth < 768 ? 1 : window.innerWidth < 1060 ? 2 : 3;
+    return 1;
   }
 
   function buildDots() {
@@ -267,7 +267,7 @@ if (heroStats) statObserver.observe(heroStats);
 
   function getCardWidth() {
     if (!cards[0]) return 0;
-    return cards[0].offsetWidth + 24; /* 24 = gap */
+    return cards[0].offsetWidth;
   }
 
   function goTo(idx) {
