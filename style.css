@@ -1467,10 +1467,10 @@ body {
   }
   .nav-links.open { display: flex; }
   .hamburger { display: flex; }
-  .hero-stats { flex-direction: row; gap: 0; padding: 20px 12px; justify-content: space-around; }
-  .stat-divider { width: 1px; height: 36px; }
-  .stat-num { font-size: 1.6rem; }
-  .stat p { font-size: 0.68rem; }
+  .hero-stats { flex-direction: row; gap: 0; padding: 14px 10px; justify-content: space-around; max-width: 320px; margin: 0 auto; }
+  .stat-divider { width: 1px; height: 30px; }
+  .stat-num { font-size: 1.4rem; }
+  .stat p { font-size: 0.63rem; }
   .timeline::before { left: 12px; }
   .timeline-item { padding-left: 44px; }
   .timeline-dot { left: 4px; }
