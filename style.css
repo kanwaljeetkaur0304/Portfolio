@@ -323,10 +323,10 @@ body {
   position: relative;
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   overflow: hidden;
-  padding-top: 100px;
+  padding-top: 110px;
 }
 
 /* Hero inner layout — image left, text right */
