@@ -1437,8 +1437,8 @@ body {
 }
 @media (max-width: 900px) {
   .hero          { padding-top: 110px; padding-bottom: 48px; }
-  .hero-inner    { flex-direction: column; gap: 20px; padding-top: 24px; }
-  .hero-content  { text-align: center; padding-left: 0; order: 2; }
+  .hero-inner    { flex-direction: column; gap: 20px; padding-top: 24px; padding-left: 4px; padding-right: 4px; }
+  .hero-content  { text-align: center; padding-left: 0; padding-right: 0; order: 2; width: 100%; }
   .hero-actions  { justify-content: center; }
   .hero-illustration { width: 260px; order: 1; }
   .hero-eyebrow  { font-size: 0.6rem; letter-spacing: 0.08em; padding: 5px 12px; white-space: normal; max-width: 280px; }
@@ -1481,6 +1481,8 @@ body {
   .edu-grid { grid-template-columns: 1fr; }
   .hero-stats { width: 100%; }
   .contact-form { padding: 24px; }
+  .container { padding: 0 12px; }
+  .hero-inner { padding-left: 0; padding-right: 0; }
 }
 
 /* ═══════════════════════════════════════
