@@ -1481,7 +1481,7 @@ body {
   .edu-grid { grid-template-columns: 1fr; }
   .hero-stats { width: 100%; }
   .contact-form { padding: 24px; }
-  .container { padding: 0 20px; }
+  .container { padding: 0 24px; }
   .hero-inner { padding-left: 0; padding-right: 0; }
 }
 
