@@ -1437,7 +1437,7 @@ body {
 }
 @media (max-width: 900px) {
   .hero          { padding-top: 110px; padding-bottom: 48px; }
-  .hero-inner    { flex-direction: column; gap: 20px; padding-top: 24px; padding-left: 0; padding-right: 0; }
+  .hero-inner    { flex-direction: column; gap: 20px; padding-top: 24px; padding-left: 20px; padding-right: 20px; }
   .hero-content  { text-align: center; padding-left: 0; padding-right: 0; order: 2; width: 100%; }
   .hero-actions  { justify-content: center; }
   .hero-illustration { width: 260px; order: 1; }
