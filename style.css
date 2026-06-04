@@ -1441,7 +1441,7 @@ body {
   .hero-inner    { flex-direction: column; gap: 20px; padding-top: 24px; padding-left: 20px; padding-right: 20px; }
   .hero-content  { text-align: center; padding-left: 0; padding-right: 0; order: 2; width: 100%; }
   .hero-actions  { justify-content: center; }
-  .hero-illustration { width: 260px; order: 1; }
+  .hero-illustration { width: 260px; order: 1; margin-top: 24px; margin-bottom: 24px; }
   .hero-eyebrow  { font-size: 0.6rem; letter-spacing: 0.08em; padding: 5px 12px; white-space: normal; max-width: 280px; }
   .hero-content  { padding-left: 0; padding-right: 0; }
   .hero-name     { font-size: clamp(1.5rem, 7.5vw, 2.2rem); white-space: nowrap; }
