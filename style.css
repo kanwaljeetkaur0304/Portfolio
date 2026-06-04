@@ -1467,8 +1467,10 @@ body {
   }
   .nav-links.open { display: flex; }
   .hamburger { display: flex; }
-  .hero-stats { flex-direction: column; gap: 24px; padding: 24px; }
-  .stat-divider { width: 40px; height: 1px; }
+  .hero-stats { flex-direction: row; gap: 0; padding: 20px 12px; justify-content: space-around; }
+  .stat-divider { width: 1px; height: 36px; }
+  .stat-num { font-size: 1.6rem; }
+  .stat p { font-size: 0.68rem; }
   .timeline::before { left: 12px; }
   .timeline-item { padding-left: 44px; }
   .timeline-dot { left: 4px; }
