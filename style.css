@@ -1437,7 +1437,7 @@ body {
   .hero-illustration { width: 340px; }
 }
 @media (max-width: 900px) {
-  .hero          { padding-top: 110px; padding-bottom: 48px; }
+  .hero          { padding-top: 110px; padding-bottom: 24px; }
   .hero-inner    { flex-direction: column; gap: 20px; padding-top: 24px; padding-left: 20px; padding-right: 20px; }
   .hero-content  { text-align: center; padding-left: 0; padding-right: 0; order: 2; width: 100%; }
   .hero-actions  { justify-content: center; }
@@ -1467,7 +1467,7 @@ body {
   }
   .nav-links.open { display: flex; }
   .hamburger { display: flex; }
-  .hero-stats { flex-direction: row; gap: 0; padding: 14px 10px; justify-content: space-around; max-width: 320px; margin: 0 auto; }
+  .hero-stats { flex-direction: row; gap: 0; padding: 14px 10px; justify-content: space-around; max-width: 320px; margin: 16px auto 0; }
   .stat-divider { width: 1px; height: 30px; }
   .stat-num { font-size: 1.4rem; }
   .stat p { font-size: 0.63rem; }
