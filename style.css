@@ -1660,6 +1660,39 @@ body {
   animation: bulb-swing 0.65s cubic-bezier(0.36,0.07,0.19,0.97) both;
 }
 
+/* Auto-hint swing: plays 3 times on every page load after a 1.5s delay */
+@keyframes bulb-auto-hint {
+  0%,  100% { transform: rotate(0deg); }
+  5%         { transform: rotate(9deg); }
+  12%        { transform: rotate(-7deg); }
+  18%        { transform: rotate(4deg); }
+  24%        { transform: rotate(-2deg); }
+  30%        { transform: rotate(0deg); }
+  /* gap */
+  35%        { transform: rotate(9deg); }
+  42%        { transform: rotate(-7deg); }
+  48%        { transform: rotate(4deg); }
+  54%        { transform: rotate(-2deg); }
+  60%        { transform: rotate(0deg); }
+  /* gap */
+  65%        { transform: rotate(9deg); }
+  72%        { transform: rotate(-7deg); }
+  78%        { transform: rotate(4deg); }
+  84%        { transform: rotate(-2deg); }
+  90%        { transform: rotate(0deg); }
+}
+@keyframes bulb-hint-tooltip {
+  0%, 14%   { opacity: 0; font-size: 0; }
+  18%, 88%  { opacity: 1; font-size: 0.65rem; }
+  94%, 100% { opacity: 0; font-size: 0; }
+}
+.theme-bulb {
+  animation: bulb-auto-hint 4s ease-in-out 1.5s 1 both;
+}
+.theme-bulb .tb-tooltip {
+  animation: bulb-hint-tooltip 4s ease-in-out 1.5s 1 both;
+}
+
 /* ══════════════════════════════════
    BULB — LIGHT ON STATE
 ══════════════════════════════════ */
@@ -1711,9 +1744,8 @@ body {
 }
 .theme-bulb.light-on .tb-tooltip::before { content: 'Switch to dark'; }
 .theme-bulb:not(.light-on) .tb-tooltip::before { content: 'Switch to light'; }
-.theme-bulb .tb-tooltip { font-size: 0; } /* hide text content, use ::before */
-.theme-bulb:hover .tb-tooltip,
-.theme-bulb.hint-show .tb-tooltip { font-size: 0.65rem; opacity: 1; }
+.theme-bulb .tb-tooltip { font-size: 0; } /* hidden by default; shown on hover or via animation */
+.theme-bulb:hover .tb-tooltip { font-size: 0.65rem; opacity: 1; animation: none; }
 
 /* ═══════════════════════════════════════
    LIGHT THEME — VARIABLE OVERRIDES

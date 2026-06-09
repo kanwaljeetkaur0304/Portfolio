@@ -33,24 +33,7 @@
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); bulb.click(); }
   });
 
-  /* Hint: swing + show tooltip on load so users know it's clickable */
-  if (!sessionStorage.getItem('kk-bulb-hinted')) {
-    sessionStorage.setItem('kk-bulb-hinted', '1');
-    function runHintCycle(count) {
-      if (count <= 0) return;
-      bulb.classList.remove('swinging');
-      void bulb.offsetWidth;
-      bulb.classList.add('swinging', 'hint-show');
-      bulb.addEventListener('animationend', () => {
-        bulb.classList.remove('swinging');
-        setTimeout(() => {
-          bulb.classList.remove('hint-show');
-          setTimeout(() => runHintCycle(count - 1), 400);
-        }, 300);
-      }, { once: true });
-    }
-    setTimeout(() => runHintCycle(3), 1500);
-  }
+  /* Hint animation is CSS-driven (bulb-auto-hint keyframe), no JS needed */
 })();
 
 /* ── NAVBAR SCROLL ── */
