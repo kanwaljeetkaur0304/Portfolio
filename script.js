@@ -33,13 +33,23 @@
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); bulb.click(); }
   });
 
-  /* Hint: show tooltip briefly on first load so users know it's clickable */
+  /* Hint: swing + show tooltip on load so users know it's clickable */
   if (!sessionStorage.getItem('kk-bulb-hinted')) {
-    setTimeout(() => {
-      bulb.classList.add('hint-show');
-      setTimeout(() => bulb.classList.remove('hint-show'), 2200);
-      sessionStorage.setItem('kk-bulb-hinted', '1');
-    }, 1800);
+    sessionStorage.setItem('kk-bulb-hinted', '1');
+    function runHintCycle(count) {
+      if (count <= 0) return;
+      bulb.classList.remove('swinging');
+      void bulb.offsetWidth;
+      bulb.classList.add('swinging', 'hint-show');
+      bulb.addEventListener('animationend', () => {
+        bulb.classList.remove('swinging');
+        setTimeout(() => {
+          bulb.classList.remove('hint-show');
+          setTimeout(() => runHintCycle(count - 1), 400);
+        }, 300);
+      }, { once: true });
+    }
+    setTimeout(() => runHintCycle(3), 1500);
   }
 })();
 
