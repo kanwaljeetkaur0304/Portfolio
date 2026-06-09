@@ -32,6 +32,15 @@
   bulb.addEventListener('keydown', e => {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); bulb.click(); }
   });
+
+  /* Hint: show tooltip briefly on first load so users know it's clickable */
+  if (!sessionStorage.getItem('kk-bulb-hinted')) {
+    setTimeout(() => {
+      bulb.classList.add('hint-show');
+      setTimeout(() => bulb.classList.remove('hint-show'), 2200);
+      sessionStorage.setItem('kk-bulb-hinted', '1');
+    }, 1800);
+  }
 })();
 
 /* ── NAVBAR SCROLL ── */
